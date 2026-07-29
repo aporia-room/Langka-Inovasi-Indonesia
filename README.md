@@ -1,1 +1,0 @@
-# Langka-Inovasi-Indonesia
