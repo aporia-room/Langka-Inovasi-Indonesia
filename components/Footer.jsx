@@ -35,9 +35,11 @@ export default function Footer() {
 
           <div className="footer-col">
             <h4>Kontak</h4>
-            <a>Palangka Raya, Kalimantan Tengah</a>
-            <a href="mailto:info@lii-indonesia.org">info@lii-indonesia.org</a>
-            <a>@lii.indonesia</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Salampak+Umar+No.+7+Panarung+Pahandut+Palangka+Raya" target="_blank" rel="noopener noreferrer">
+              Jl. Salampak Umar No. 7, Panarung, Pahandut, Palangka Raya
+            </a>
+            <a href="mailto:langkahinovasiindonesia2045@gmail.com" style={{ wordBreak: 'break-all' }}>langkahinovasiindonesia2045@gmail.com</a>
+            <a href="https://www.instagram.com/langkahinovasiindonesia/" target="_blank" rel="noopener noreferrer">@langkahinovasiindonesia</a>
           </div>
         </div>
 

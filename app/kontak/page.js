@@ -3,6 +3,9 @@
 import { useState } from 'react'
 import Footer from '@/components/Footer'
 
+const EMAIL = 'langkahinovasiindonesia2045@gmail.com'
+const IG = 'https://www.instagram.com/langkahinovasiindonesia/'
+
 export default function Kontak() {
   const [form, setForm] = useState({
     nama: '',
@@ -12,27 +15,25 @@ export default function Kontak() {
     pesan: '',
   })
   const [sent, setSent] = useState(false)
-  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async (e) => {
+  // Membuka aplikasi email pengunjung dengan pesan yang sudah terisi
+  const handleSubmit = (e) => {
     e.preventDefault()
-    setLoading(true)
-
-    // TODO: Ganti dengan Formspree ID kamu
-    // Daftar di formspree.io, buat form baru, copy ID-nya
-    // Contoh: const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', ...)
-
-    // Simulasi kirim (sementara)
-    await new Promise((r) => setTimeout(r, 1000))
+    const subjek = `[Website LII] ${form.topik} — ${form.nama}`
+    const isi =
+      `Nama: ${form.nama}\n` +
+      `Email: ${form.email}\n` +
+      (form.organisasi ? `Organisasi/Institusi: ${form.organisasi}\n` : '') +
+      `Topik: ${form.topik}\n\n` +
+      form.pesan
+    window.location.href =
+      `mailto:${EMAIL}?subject=${encodeURIComponent(subjek)}&body=${encodeURIComponent(isi)}`
     setSent(true)
-    setLoading(false)
-    setForm({ nama: '', email: '', organisasi: '', topik: '', pesan: '' })
-
-    setTimeout(() => setSent(false), 4000)
+    setTimeout(() => setSent(false), 6000)
   }
 
   return (
@@ -46,8 +47,8 @@ export default function Kontak() {
           </div>
           <h1 className="display">Mari Berkolaborasi</h1>
           <p className="lead">
-            Kami terbuka untuk diskusi, kemitraan riset, undangan pembicara,
-            dan kolaborasi akademik. Hubungi kami melalui formulir di bawah.
+            Kami terbuka untuk diskusi, kemitraan, undangan pembicara,
+            dan kolaborasi program. Hubungi kami melalui formulir di bawah.
           </p>
         </div>
       </section>
@@ -64,7 +65,9 @@ export default function Kontak() {
               <div className="kontak-icon">📍</div>
               <div>
                 <div className="kontak-item-label">Alamat</div>
-                <div className="kontak-item-val">Palangka Raya, Kalimantan Tengah, Indonesia</div>
+                <a className="kontak-item-val" href="https://www.google.com/maps/search/?api=1&query=Jl.+Salampak+Umar+No.+7+Panarung+Pahandut+Palangka+Raya" target="_blank" rel="noopener noreferrer">
+                  Jl. Salampak Umar No. 7, Kel. Panarung, Kec. Pahandut, Kota Palangka Raya, Kalimantan Tengah
+                </a>
               </div>
             </div>
 
@@ -72,15 +75,19 @@ export default function Kontak() {
               <div className="kontak-icon">✉️</div>
               <div>
                 <div className="kontak-item-label">Email</div>
-                <div className="kontak-item-val">info@lii-indonesia.org</div>
+                <a className="kontak-item-val" href={`mailto:${EMAIL}`} style={{ wordBreak: 'break-all' }}>
+                  {EMAIL}
+                </a>
               </div>
             </div>
 
             <div className="kontak-item">
               <div className="kontak-icon">📱</div>
               <div>
-                <div className="kontak-item-label">Media Sosial</div>
-                <div className="kontak-item-val">@lii.indonesia</div>
+                <div className="kontak-item-label">Instagram</div>
+                <a className="kontak-item-val" href={IG} target="_blank" rel="noopener noreferrer">
+                  @langkahinovasiindonesia
+                </a>
               </div>
             </div>
 
@@ -89,11 +96,12 @@ export default function Kontak() {
                 Ikuti Kami
               </div>
               <div className="sosmed-grid">
-                {['𝕏', 'in', '📷', '▶'].map((s) => (
-                  <a key={s} className="sosmed-btn">
-                    {s}
-                  </a>
-                ))}
+                <a className="sosmed-btn" href={IG} target="_blank" rel="noopener noreferrer" aria-label="Instagram LII">
+                  📷
+                </a>
+                <a className="sosmed-btn" href={`mailto:${EMAIL}`} aria-label="Email LII">
+                  ✉️
+                </a>
               </div>
             </div>
           </div>
@@ -142,7 +150,7 @@ export default function Kontak() {
                 <label>Topik</label>
                 <select name="topik" value={form.topik} onChange={handleChange} required>
                   <option value="">Pilih topik...</option>
-                  <option>Kemitraan Riset</option>
+                  <option>Kemitraan</option>
                   <option>Kolaborasi Program</option>
                   <option>Undangan Pembicara</option>
                   <option>Pertanyaan Umum</option>
@@ -161,9 +169,12 @@ export default function Kontak() {
                 />
               </div>
 
-              <button type="submit" className="form-submit" disabled={loading}>
-                {loading ? 'Mengirim...' : 'Kirim Pesan →'}
+              <button type="submit" className="form-submit">
+                Kirim Pesan →
               </button>
+              <p className="body-text" style={{ fontSize: '13px', marginTop: '12px', color: 'var(--abu)' }}>
+                Tombol ini membuka aplikasi email kamu dengan pesan yang sudah terisi. Tinggal tekan Kirim di sana.
+              </p>
             </form>
           </div>
         </div>
@@ -172,7 +183,7 @@ export default function Kontak() {
       {/* Toast Notifikasi */}
       {sent && (
         <div className="toast">
-          ✓ Pesan terkirim! Kami akan segera menghubungi Anda.
+          Aplikasi email dibuka. Jangan lupa tekan Kirim di sana, ya.
         </div>
       )}
 
