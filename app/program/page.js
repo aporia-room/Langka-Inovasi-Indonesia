@@ -34,7 +34,7 @@ export default async function Program() {
         <div className="label">Program Utama</div>
         {programs.length === 0 ? (
           <p className="body-text" style={{ marginTop: '24px', color: 'var(--abu)' }}>
-            Belum ada program. Tambahkan di Sanity Studio!
+            Belum ada program.
           </p>
         ) : (
           <div className="program-list">
@@ -65,7 +65,7 @@ export default async function Program() {
         <h2 className="section-title">Proyek Riset Kami</h2>
         {riset.length === 0 ? (
           <p className="body-text" style={{ marginTop: '24px', color: 'var(--abu)' }}>
-            Belum ada riset. Tambahkan di Sanity Studio!
+            Belum ada riset.
           </p>
         ) : (
           <div className="riset-grid">

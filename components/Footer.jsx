@@ -18,9 +18,9 @@ export default function Footer() {
               <span>LII</span> — Langkah Inovasi Indonesia
             </div>
             <p className="footer-desc">
-              Think tank independen berbasis di Kalimantan Tengah yang
-              berkomitmen menghasilkan riset, kajian, dan rekomendasi kebijakan
-              untuk Indonesia yang lebih baik.
+              Perkumpulan pemuda berbasis di Palangka Raya, Kalimantan Tengah,
+              yang menghimpun dan memberdayakan pemuda Indonesia untuk berperan
+              aktif dalam pembangunan.
             </p>
           </div>
 
@@ -45,7 +45,7 @@ export default function Footer() {
           <p className="footer-copy">
             © 2026 <span className="footer-kuning">Langkah Inovasi Indonesia</span>. Semua hak dilindungi.
           </p>
-          <p className="footer-copy">Think tank independen untuk Indonesia yang lebih baik.</p>
+          <p className="footer-copy">Wadah pemuda untuk Indonesia yang lebih maju.</p>
         </div>
       </div>
     </footer>

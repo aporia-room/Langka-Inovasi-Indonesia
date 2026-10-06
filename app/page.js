@@ -3,16 +3,16 @@ import Footer from '@/components/Footer'
 import { getArtikel, getSiteStats } from '@/lib/sanity'
 
 const pilar = [
-  { n: '1', judul: 'Riset & Kajian', desc: 'Menghasilkan penelitian mendalam tentang isu kebijakan publik, hukum, dan sosial yang relevan dengan konteks lokal Kalimantan Tengah dan nasional.' },
-  { n: '2', judul: 'Advokasi Kebijakan', desc: 'Menyuarakan rekomendasi berbasis data kepada pemangku kepentingan — dari pemerintah daerah hingga legislatif — untuk mendorong perubahan nyata.' },
-  { n: '3', judul: 'Pengembangan Kapasitas', desc: 'Membangun ekosistem intelektual dengan melatih generasi muda agar mampu berpikir kritis, menganalisis kebijakan, dan berkontribusi aktif.' },
+  { n: '1', judul: 'Pengembangan & Pemberdayaan Pemuda', desc: 'Menjadi ruang bagi pemuda untuk menumbuhkan potensi diri, mengasah kepemimpinan, dan memperluas jejaring melalui pelatihan, mentoring, pendampingan, lokakarya, seminar, dan kegiatan literasi.' },
+  { n: '2', judul: 'Inovasi & Kreativitas Sosial', desc: 'Mengembangkan gagasan dan solusi inovatif untuk tantangan sosial, pendidikan, ekonomi, dan lingkungan lewat riset, proyek percontohan, dan kegiatan berbasis inovasi lokal.' },
+  { n: '3', judul: 'Kemitraan & Kesejahteraan', desc: 'Menjadi jembatan antara pemuda dengan pemerintah, sektor swasta, akademisi, dan masyarakat sipil untuk mendukung peningkatan IPP dan IPM serta kesejahteraan sosial dan ekonomi masyarakat.' },
 ]
 
 export const revalidate = 60
 
 export default async function Home() {
   let posts = []
-  let stats = { risetSelesai: '12+', programAktif: '5', tahunBerdiri: '3+' }
+  let stats = { risetSelesai: '0', programAktif: '0', tahunBerdiri: '2025' }
 
   try { posts = await getArtikel() } catch (e) { console.error(e) }
   try {
@@ -25,15 +25,15 @@ export default async function Home() {
 
       <section className="hero">
         <div className="hero-inner">
-          <div className="label-outline">Think Tank · Kalimantan Tengah</div>
+          <div className="label-outline">Perkumpulan Pemuda · Kalimantan Tengah</div>
           <h1 className="display">
             Inovasi Dimulai dari<br />
             <em>Pikiran yang Berani</em>
           </h1>
           <p className="lead">
-            LII adalah lembaga pemikir independen yang menghasilkan riset,
-            kajian kebijakan, dan rekomendasi berbasis bukti untuk mendorong
-            kemajuan Indonesia.
+            LII adalah perkumpulan yang menghimpun dan memberdayakan pemuda
+            Indonesia untuk berperan aktif dalam pembangunan melalui
+            pendekatan inovatif dan kolaboratif.
           </p>
           <div className="hero-btns">
             <Link href="/program" className="btn-primary">Lihat Program Kami</Link>
@@ -79,7 +79,7 @@ export default async function Home() {
         <h2 className="section-title">Publikasi & Berita</h2>
         {posts.length === 0 ? (
           <p className="body-text" style={{ marginTop: '24px', color: 'var(--abu)' }}>
-            Belum ada artikel. Tambahkan di Sanity Studio!
+            Belum ada publikasi.
           </p>
         ) : (
           <div className="latest-grid">
@@ -105,7 +105,7 @@ export default async function Home() {
               Bergabung & Berkolaborasi
             </h2>
             <p style={{ color: 'var(--hitam-lunak)', fontSize: '15px' }}>
-              Kami terbuka untuk kemitraan riset, kolaborasi akademik, dan keterlibatan aktif.
+              Kami terbuka untuk kemitraan dengan pemerintah, sektor swasta, akademisi, dan organisasi masyarakat sipil, serta pemuda yang ingin ikut bergerak.
             </p>
           </div>
           <Link href="/kontak" className="btn-outline">Hubungi Kami</Link>

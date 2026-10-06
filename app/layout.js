@@ -3,11 +3,11 @@ import Navbar from '@/components/Navbar'
 
 export const metadata = {
   title: 'LII — Langkah Inovasi Indonesia',
-  description: 'Think tank independen berbasis di Kalimantan Tengah yang berkomitmen menghasilkan riset, kajian, dan rekomendasi kebijakan untuk Indonesia yang lebih baik.',
-  keywords: 'Langkah Inovasi Indonesia, LII, riset kebijakan, Kalimantan Tengah, think tank',
+  description: 'Perkumpulan pemuda berbasis di Palangka Raya, Kalimantan Tengah, yang menghimpun dan memberdayakan pemuda Indonesia untuk berperan aktif dalam pembangunan.',
+  keywords: 'Langkah Inovasi Indonesia, LII, perkumpulan pemuda, Kalimantan Tengah, Palangka Raya',
   openGraph: {
     title: 'LII — Langkah Inovasi Indonesia',
-    description: 'Think tank independen berbasis di Kalimantan Tengah.',
+    description: 'Perkumpulan pemuda berbasis di Palangka Raya, Kalimantan Tengah.',
     type: 'website',
   },
 }

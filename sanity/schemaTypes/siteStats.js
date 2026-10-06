@@ -25,7 +25,7 @@ export default {
       name: 'tahunBerdiri',
       title: 'Tahun Berdiri (label)',
       type: 'string',
-      description: 'Contoh: "3+" — ini angka yang tampil, bukan tahun mulai',
+      description: 'Contoh: "2025" — ini teks yang tampil di beranda',
       validation: (Rule) => Rule.required(),
     },
   ],
