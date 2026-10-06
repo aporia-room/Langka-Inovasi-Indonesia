@@ -3,7 +3,7 @@ import BlogContent from '@/components/BlogContent'
 import { getArtikel } from '@/lib/sanity'
 
 export const metadata = {
-  title: 'Publikasi & Berita — LII',
+  title: 'Publikasi & Berita',
 }
 
 export const revalidate = 60

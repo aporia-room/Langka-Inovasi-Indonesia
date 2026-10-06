@@ -16,7 +16,7 @@ const nilaiList = [
   { n: 'Indonesia', d: 'Menegaskan bahwa semua langkah dan inovasi ditujukan untuk kemajuan bangsa dan negara Indonesia secara keseluruhan.' },
 ]
 
-export const metadata = { title: 'Tentang Kami — LII' }
+export const metadata = { title: 'Tentang Kami' }
 
 export const revalidate = 60
 

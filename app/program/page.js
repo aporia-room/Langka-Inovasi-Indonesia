@@ -2,7 +2,7 @@ import Footer from '@/components/Footer'
 import { getPrograms, getRiset } from '@/lib/sanity'
 
 export const metadata = {
-  title: 'Program & Riset — LII',
+  title: 'Program & Riset',
 }
 
 export const revalidate = 60

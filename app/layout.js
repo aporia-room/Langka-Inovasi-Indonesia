@@ -2,11 +2,14 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 
 export const metadata = {
-  title: 'LII — Langkah Inovasi Indonesia',
+  title: {
+    default: 'Langkah Inovasi Indonesia',
+    template: '%s | Langkah Inovasi Indonesia',
+  },
   description: 'Perkumpulan pemuda berbasis di Palangka Raya, Kalimantan Tengah, yang menghimpun dan memberdayakan pemuda Indonesia untuk berperan aktif dalam pembangunan.',
   keywords: 'Langkah Inovasi Indonesia, LII, perkumpulan pemuda, Kalimantan Tengah, Palangka Raya',
   openGraph: {
-    title: 'LII — Langkah Inovasi Indonesia',
+    title: 'Langkah Inovasi Indonesia',
     description: 'Perkumpulan pemuda berbasis di Palangka Raya, Kalimantan Tengah.',
     type: 'website',
   },
