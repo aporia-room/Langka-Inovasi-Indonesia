@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer'
 import { getTim } from '@/lib/sanity'
+import TimGrid from '@/components/TimGrid'
 
 const misiList = [
   'Meningkatkan Indeks Pembangunan Pemuda (IPP) melalui program yang berfokus pada inovasi, kreativitas, dan partisipasi pemuda.',
@@ -68,15 +69,7 @@ export default async function Tentang() {
             Informasi pengurus akan segera hadir.
           </p>
         ) : (
-          <div className="tim-grid">
-            {tim.map((t) => (
-              <div className="tim-card" key={t._id}>
-                <div className="tim-avatar">{t.inisial}</div>
-                <div className="tim-name">{t.nama}</div>
-                <div className="tim-role">{t.peran}</div>
-              </div>
-            ))}
-          </div>
+          <TimGrid tim={tim} />
         )}
       </section>
 
