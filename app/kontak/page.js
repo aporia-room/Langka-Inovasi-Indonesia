@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Footer from '@/components/Footer'
+import { IconPin, IconMail, IconInstagram } from '@/components/Icons'
 
 const EMAIL = 'langkahinovasiindonesia2045@gmail.com'
 const IG = 'https://www.instagram.com/langkahinovasiindonesia/'
@@ -62,17 +63,17 @@ export default function Kontak() {
             <h3>Informasi Kontak</h3>
 
             <div className="kontak-item">
-              <div className="kontak-icon">📍</div>
+              <div className="kontak-icon"><IconPin /></div>
               <div>
                 <div className="kontak-item-label">Alamat</div>
-                <a className="kontak-item-val" href="https://www.google.com/maps/search/?api=1&query=Jl.+Salampak+Umar+No.+7+Panarung+Pahandut+Palangka+Raya" target="_blank" rel="noopener noreferrer">
-                  Jl. Salampak Umar No. 7, Kel. Panarung, Kec. Pahandut, Kota Palangka Raya, Kalimantan Tengah
+                <a className="kontak-item-val" href="https://www.google.com/maps/search/?api=1&query=Jl.+Salampak+Umar+Panarung+Pahandut+Palangka+Raya" target="_blank" rel="noopener noreferrer">
+                  Jl. Salampak Umar, Kel. Panarung, Kec. Pahandut, Kota Palangka Raya, Kalimantan Tengah
                 </a>
               </div>
             </div>
 
             <div className="kontak-item">
-              <div className="kontak-icon">✉️</div>
+              <div className="kontak-icon"><IconMail /></div>
               <div>
                 <div className="kontak-item-label">Email</div>
                 <a className="kontak-item-val" href={`mailto:${EMAIL}`} style={{ wordBreak: 'break-all' }}>
@@ -82,7 +83,7 @@ export default function Kontak() {
             </div>
 
             <div className="kontak-item">
-              <div className="kontak-icon">📱</div>
+              <div className="kontak-icon"><IconInstagram /></div>
               <div>
                 <div className="kontak-item-label">Instagram</div>
                 <a className="kontak-item-val" href={IG} target="_blank" rel="noopener noreferrer">
@@ -97,10 +98,10 @@ export default function Kontak() {
               </div>
               <div className="sosmed-grid">
                 <a className="sosmed-btn" href={IG} target="_blank" rel="noopener noreferrer" aria-label="Instagram LII">
-                  📷
+                  <IconInstagram />
                 </a>
                 <a className="sosmed-btn" href={`mailto:${EMAIL}`} aria-label="Email LII">
-                  ✉️
+                  <IconMail />
                 </a>
               </div>
             </div>
