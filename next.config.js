@@ -8,6 +8,10 @@ const nextConfig = {
       },
     ],
   },
+  // Semua alamat /studio/... diarahkan ke satu halaman Studio
+  async rewrites() {
+    return [{ source: '/studio/:path+', destination: '/studio' }]
+  },
 }
 
 module.exports = nextConfig

@@ -15,6 +15,7 @@ const links = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
+  if (pathname && pathname.startsWith('/studio')) return null
 
   return (
     <>
