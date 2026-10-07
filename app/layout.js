@@ -2,6 +2,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 
 export const metadata = {
+  metadataBase: new URL('https://www.langkahinovasiindonesia.or.id'),
   title: {
     default: 'Langkah Inovasi Indonesia',
     template: '%s | Langkah Inovasi Indonesia',

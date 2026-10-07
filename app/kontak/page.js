@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Footer from '@/components/Footer'
 import { IconPin, IconMail, IconInstagram } from '@/components/Icons'
 
-const EMAIL = 'langkahinovasiindonesia2045@gmail.com'
+const EMAIL = 'langkahinovasiindonesia2030@gmail.com'
 const IG = 'https://www.instagram.com/langkahinovasiindonesia/'
 
 export default function Kontak() {
