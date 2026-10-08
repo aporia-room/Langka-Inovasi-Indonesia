@@ -17,6 +17,13 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'gambar',
+      title: 'Gambar Program',
+      type: 'image',
+      description: 'Foto kegiatan program. Sebaiknya foto mendatar (landscape). Bisa diatur titik fokusnya setelah diunggah.',
+      options: { hotspot: true },
+    },
+    {
       name: 'tags',
       title: 'Tags',
       type: 'array',
@@ -25,6 +32,6 @@ export default {
     },
   ],
   preview: {
-    select: { title: 'judul' },
+    select: { title: 'judul', media: 'gambar' },
   },
 }

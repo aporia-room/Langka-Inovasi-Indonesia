@@ -48,7 +48,7 @@ export default async function Home() {
             </div>
             <div className="stat-item" style={{ paddingLeft: '32px' }}>
               <div className="stat-num">{stats.programAktif}</div>
-              <div className="stat-label">Program Aktif</div>
+              <div className="stat-label">Program Unggulan</div>
             </div>
             <div className="stat-item" style={{ paddingLeft: '32px' }}>
               <div className="stat-num">{stats.tahunBerdiri}</div>

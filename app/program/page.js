@@ -40,8 +40,8 @@ export default async function Program() {
           <div className="program-list">
             {programs.map((p, i) => (
               <div className="program-item" key={p._id}>
-                <div className="program-num">0{i + 1}</div>
-                <div>
+                <div className="program-num">{String(i + 1).padStart(2, '0')}</div>
+                <div className="program-body">
                   <h3 className="card-title" style={{ fontSize: '20px', marginBottom: '12px' }}>
                     {p.judul}
                   </h3>
@@ -51,6 +51,17 @@ export default async function Program() {
                       <span className="tag" key={tag}>{tag}</span>
                     ))}
                   </div>
+                </div>
+                <div className={`program-img ${p.gambar ? '' : 'kosong'}`}>
+                  {p.gambar ? (
+                    <img
+                      src={`${p.gambar}?w=800&h=600&fit=crop&auto=format`}
+                      alt={`Kegiatan ${p.judul}`}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <img src="/logo-lii.png" alt="" aria-hidden="true" />
+                  )}
                 </div>
               </div>
             ))}

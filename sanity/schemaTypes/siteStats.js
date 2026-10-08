@@ -16,7 +16,7 @@ export default {
     },
     {
       name: 'programAktif',
-      title: 'Program Aktif',
+      title: 'Program Unggulan',
       type: 'string',
       description: 'Contoh: "5" atau "7+"',
       validation: (Rule) => Rule.required(),
