@@ -24,6 +24,14 @@ export default {
       options: { hotspot: true },
     },
     {
+      name: 'galeri',
+      title: 'Galeri Foto (opsional)',
+      type: 'array',
+      description: 'Foto-foto tambahan kegiatan. Ditampilkan utuh (tidak dipotong) saat diklik.',
+      of: [{ type: 'image' }],
+      options: { layout: 'grid' },
+    },
+    {
       name: 'tags',
       title: 'Tags',
       type: 'array',

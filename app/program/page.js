@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer'
 import { getPrograms, getRiset } from '@/lib/sanity'
+import ProgramGaleri from '@/components/ProgramGaleri'
 
 export const metadata = {
   title: 'Program & Riset',
@@ -51,6 +52,7 @@ export default async function Program() {
                       <span className="tag" key={tag}>{tag}</span>
                     ))}
                   </div>
+                  {p.galeri?.length > 0 && <ProgramGaleri judul={p.judul} foto={p.galeri} />}
                 </div>
                 <div className={`program-img ${p.gambar ? '' : 'kosong'}`}>
                   {p.gambar ? (
