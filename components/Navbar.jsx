@@ -21,7 +21,8 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <Link href="/" className="navbar-logo">
-          <span>LII</span> — Langkah Inovasi Indonesia
+          <img src="/logo-lii-icon.png" alt="Logo LII" className="logo-icon" />
+          <span className="logo-teks">Langkah Inovasi Indonesia</span>
         </Link>
 
         <div className="navbar-links">

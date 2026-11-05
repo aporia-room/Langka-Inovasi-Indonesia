@@ -37,7 +37,9 @@
       cursor: pointer;
       letter-spacing: 0.01em;
     }
-    .navbar-logo span { color: var(--kuning); }
+    .navbar-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon { height: 40px; width: auto; display: block; flex-shrink: 0; }
+    .logo-teks { color: var(--putih); line-height: 1.1; }
     .navbar-links { display: flex; gap: 32px; align-items: center; }
     .navbar-links a {
       color: #CCCCCC;
@@ -494,7 +496,8 @@
       font-family: 'Instrument Serif', serif;
       font-size: 22px; color: var(--putih); margin-bottom: 12px;
     }
-    .footer-logo span { color: var(--kuning); }
+    .footer-logo { display: flex; align-items: center; gap: 12px; }
+    .footer-logo .logo-icon { height: 48px; }
     .footer-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 280px; }
     .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kuning); margin-bottom: 16px; }
     .footer-col a { display: block; font-size: 13px; color: #888888; text-decoration: none; margin-bottom: 10px; cursor: pointer; transition: color 0.2s; }
@@ -518,6 +521,8 @@
       .navbar { padding: 0 24px; }
       .navbar-links { display: none; }
       .hamburger { display: flex; }
+      .navbar-logo { font-size: 18px; gap: 10px; }
+      .navbar .logo-icon { height: 34px; }
       .section, .section-sm, .hero, .tentang-hero, .program-hero, .blog-hero, .kontak-hero, .footer { padding-left: 24px; padding-right: 24px; }
       .hero-stats { grid-template-columns: 1fr; }
       .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0; }

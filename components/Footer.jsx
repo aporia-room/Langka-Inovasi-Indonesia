@@ -15,7 +15,8 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
-              <span>LII</span> — Langkah Inovasi Indonesia
+              <img src="/logo-lii-icon.png" alt="Logo LII" className="logo-icon" />
+              <span className="logo-teks">Langkah Inovasi Indonesia</span>
             </div>
             <p className="footer-desc">
               Perkumpulan pemuda berbasis di Palangka Raya, Kalimantan Tengah,
