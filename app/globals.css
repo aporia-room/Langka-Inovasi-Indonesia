@@ -516,6 +516,78 @@
     }
     @keyframes slideIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
+    /* ── KOLOM BERITA & DETAIL ARTIKEL ── */
+    a.blog-card, a.blog-featured { display: block; text-decoration: none; color: inherit; }
+    a.blog-featured { display: grid; }
+    .blog-featured { transition: transform 0.2s; }
+    a.blog-featured:hover { transform: translateY(-3px); }
+    .blog-featured-img { overflow: hidden; }
+    .blog-featured-img img, .blog-card-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .blog-card-img { overflow: hidden; opacity: 1; }
+    .blog-card-img span { opacity: 0.4; }
+    .blog-card { display: flex; flex-direction: column; }
+    .blog-card-body { flex: 1; display: flex; flex-direction: column; }
+    .blog-card-baca, .blog-featured-baca {
+      margin-top: auto; padding-top: 16px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+    }
+    .blog-card-baca { color: var(--hitam); }
+    .blog-featured-baca { color: var(--kuning); margin-top: 20px; padding-top: 0; }
+    a.blog-card:hover .blog-card-baca { color: #B38F00; }
+
+    .home-berita { background: var(--abu-muda); padding: 80px 48px; }
+    .home-berita-inner { max-width: 1100px; margin: 0 auto; }
+    .home-berita-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .home-berita .blog-card { background: var(--putih); }
+
+    .artikel-hero { background: var(--hitam); padding: 72px 48px 56px; }
+    .artikel-hero-inner { max-width: 760px; margin: 0 auto; }
+    .artikel-kembali {
+      display: inline-block; margin-bottom: 24px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--kuning); text-decoration: none;
+    }
+    .artikel-kembali:hover { text-decoration: underline; }
+    .artikel-judul {
+      font-family: 'Instrument Serif', serif; font-weight: 400;
+      font-size: 44px; line-height: 1.15; color: var(--putih);
+    }
+    .artikel-meta { margin-top: 20px; font-size: 13px; color: #999999; }
+
+    .artikel-wrap { max-width: 760px; margin: 0 auto; padding: 48px 0 64px; }
+    .artikel-cover { width: 100%; height: auto; display: block; margin-bottom: 40px; }
+    .artikel-ringkasan {
+      font-size: 19px; line-height: 1.7; color: var(--hitam-lunak);
+      border-left: 4px solid var(--kuning); padding-left: 20px; margin-bottom: 40px;
+    }
+    .artikel-isi { font-size: 17px; line-height: 1.85; color: var(--hitam-lunak); }
+    .artikel-isi > * + * { margin-top: 1.2em; }
+    .artikel-isi h2, .artikel-isi h3, .artikel-isi h4 {
+      font-family: 'Instrument Serif', serif; font-weight: 400;
+      color: var(--hitam); line-height: 1.3; margin-top: 1.8em;
+    }
+    .artikel-isi h2 { font-size: 30px; }
+    .artikel-isi h3 { font-size: 24px; }
+    .artikel-isi h4 { font-size: 20px; }
+    .artikel-isi a { color: var(--hitam); text-decoration: underline; text-decoration-color: var(--kuning); text-underline-offset: 3px; }
+    .artikel-isi ul, .artikel-isi ol { padding-left: 1.4em; }
+    .artikel-isi li + li { margin-top: 0.4em; }
+    .artikel-isi blockquote {
+      border-left: 4px solid var(--kuning); padding: 4px 0 4px 20px;
+      font-style: italic; color: var(--abu);
+    }
+    .artikel-figure { margin: 2em 0; }
+    .artikel-figure img { width: 100%; height: auto; display: block; }
+    .artikel-figure figcaption { font-size: 13px; color: var(--abu); margin-top: 8px; text-align: center; }
+    .artikel-sumber { display: inline-block; margin-top: 40px; }
+    .artikel-footer { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .artikel-terkait { border-top: 1px solid var(--border); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .navbar { padding: 0 24px; }
@@ -535,6 +607,10 @@
       .blog-featured { grid-template-columns: 1fr; }
       .blog-featured-img { min-height: 160px; }
       .blog-grid { grid-template-columns: 1fr; }
+      .home-berita, .artikel-hero { padding-left: 24px; padding-right: 24px; }
+      .artikel-wrap { padding: 32px 24px 48px; }
+      .artikel-judul { font-size: 32px; }
+      .artikel-isi { font-size: 16px; }
       .kontak-grid { grid-template-columns: 1fr; gap: 40px; }
       .form-row { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 32px; }
