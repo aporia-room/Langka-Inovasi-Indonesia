@@ -4,6 +4,7 @@ import ArtikelCard, { ArtikelLink } from '@/components/ArtikelCard'
 import { getArtikel, getBerita, getSiteStats } from '@/lib/sanity'
 import { formatTanggal } from '@/lib/format'
 import SejarahLII from '@/components/SejarahLII'
+import { statistikLokal } from '@/lib/statistikLokal'
 
 const pilar = [
   { n: '1', judul: 'Pengembangan & Pemberdayaan Pemuda', desc: 'Menjadi ruang bagi pemuda untuk menumbuhkan potensi diri, mengasah kepemimpinan, dan memperluas jejaring melalui pelatihan, mentoring, pendampingan, lokakarya, seminar, dan kegiatan literasi.' },
@@ -27,6 +28,8 @@ export default async function Home() {
     const s = await getSiteStats()
     if (s) stats = s
   } catch (e) { console.error(e) }
+  // Angka yang diatur langsung di kode menimpa angka dari Sanity
+  stats = { ...stats, ...statistikLokal }
 
   return (
     <div className="page">
