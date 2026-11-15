@@ -67,6 +67,11 @@ export default async function Home() {
               <div className="stat-label">Riset Selesai</div>
             </div>
             <div className="stat-item" style={{ paddingLeft: '32px' }}>
+              <div className="stat-num">{stats.eventTerlaksana}</div>
+              <div className="stat-label">Event Terlaksana</div>
+              <div className="stat-sub">selama 3 tahun</div>
+            </div>
+            <div className="stat-item" style={{ paddingLeft: '32px' }}>
               <div className="stat-num">{stats.programAktif}</div>
               <div className="stat-label">Program Unggulan</div>
             </div>
