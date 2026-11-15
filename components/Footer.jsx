@@ -39,6 +39,7 @@ export default function Footer() {
             <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Salampak+Umar+Panarung+Pahandut+Palangka+Raya" target="_blank" rel="noopener noreferrer">
               Jl. Salampak Umar, Panarung, Pahandut, Palangka Raya
             </a>
+            <a href="https://wa.me/6285754121425" target="_blank" rel="noopener noreferrer">+62 857-5412-1425</a>
             <a href="mailto:langkahinovasiindonesia2030@gmail.com" style={{ wordBreak: 'break-all' }}>langkahinovasiindonesia2030@gmail.com</a>
             <a href="https://www.instagram.com/langkahinovasiindonesia/" target="_blank" rel="noopener noreferrer">@langkahinovasiindonesia</a>
           </div>

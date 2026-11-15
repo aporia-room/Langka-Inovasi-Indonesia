@@ -2,10 +2,12 @@
 
 import { useState } from 'react'
 import Footer from '@/components/Footer'
-import { IconPin, IconMail, IconInstagram } from '@/components/Icons'
+import { IconPin, IconMail, IconInstagram, IconPhone } from '@/components/Icons'
 
 const EMAIL = 'langkahinovasiindonesia2030@gmail.com'
 const IG = 'https://www.instagram.com/langkahinovasiindonesia/'
+const TELEPON = '+62 857-5412-1425'
+const WA = 'https://wa.me/6285754121425'
 
 export default function Kontak() {
   const [form, setForm] = useState({
@@ -83,6 +85,16 @@ export default function Kontak() {
             </div>
 
             <div className="kontak-item">
+              <div className="kontak-icon"><IconPhone /></div>
+              <div>
+                <div className="kontak-item-label">Telepon / WhatsApp</div>
+                <a className="kontak-item-val" href={WA} target="_blank" rel="noopener noreferrer">
+                  {TELEPON}
+                </a>
+              </div>
+            </div>
+
+            <div className="kontak-item">
               <div className="kontak-icon"><IconInstagram /></div>
               <div>
                 <div className="kontak-item-label">Instagram</div>
@@ -99,6 +111,9 @@ export default function Kontak() {
               <div className="sosmed-grid">
                 <a className="sosmed-btn" href={IG} target="_blank" rel="noopener noreferrer" aria-label="Instagram LII">
                   <IconInstagram />
+                </a>
+                <a className="sosmed-btn" href={WA} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp LII">
+                  <IconPhone />
                 </a>
                 <a className="sosmed-btn" href={`mailto:${EMAIL}`} aria-label="Email LII">
                   <IconMail />
