@@ -40,6 +40,11 @@
     .navbar-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .logo-icon { height: 40px; width: auto; display: block; flex-shrink: 0; }
     .logo-teks { color: var(--putih); line-height: 1.1; }
+    .navbar .logo-teks { display: flex; flex-direction: column; gap: 3px; }
+    .logo-tagline {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--kuning); line-height: 1;
+    }
     .navbar-links { display: flex; gap: 32px; align-items: center; }
     .navbar-links a {
       color: #CCCCCC;
@@ -642,6 +647,7 @@
       .hamburger { display: flex; }
       .navbar-logo { font-size: 18px; gap: 10px; }
       .navbar .logo-icon { height: 34px; }
+      .logo-tagline { font-size: 9.5px; letter-spacing: 0.04em; }
       .section, .section-sm, .hero, .tentang-hero, .program-hero, .blog-hero, .kontak-hero, .footer { padding-left: 24px; padding-right: 24px; }
       .hero-stats { grid-template-columns: 1fr; }
       .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0; }
