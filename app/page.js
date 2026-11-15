@@ -4,6 +4,7 @@ import ArtikelCard, { ArtikelLink } from '@/components/ArtikelCard'
 import { getArtikel, getBerita, getSiteStats } from '@/lib/sanity'
 import { formatTanggal } from '@/lib/format'
 import SejarahLII from '@/components/SejarahLII'
+import EventLII from '@/components/EventLII'
 import { statistikLokal } from '@/lib/statistikLokal'
 
 const pilar = [
@@ -55,7 +56,10 @@ export default async function Home() {
                 </Link>
               </div>
             </div>
-            <SejarahLII tahunBerdiri={stats.tahunBerdiri} />
+            <div className="hero-samping">
+              <EventLII />
+              <SejarahLII tahunBerdiri={stats.tahunBerdiri} />
+            </div>
           </div>
           <div className="hero-stats">
             <div className="stat-item">
