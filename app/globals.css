@@ -588,8 +588,55 @@
     .artikel-footer { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); }
     .artikel-terkait { border-top: 1px solid var(--border); }
 
+
+    /* ── KOLOM SEJARAH (kanan atas beranda) ── */
+    .hero-top {
+      display: grid; grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 56px; align-items: start;
+    }
+    .hero-main { min-width: 0; }
+    .hero-sejarah {
+      background: #1A1A1A;
+      border: 1px solid rgba(245,197,0,0.35);
+      border-top: 4px solid var(--kuning);
+      padding: 28px 28px 24px;
+      position: relative; z-index: 1;
+    }
+    .hero-sejarah-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--kuning); margin-bottom: 8px;
+    }
+    .hero-sejarah-judul {
+      font-family: 'Instrument Serif', serif; font-weight: 400;
+      font-size: 30px; line-height: 1.15; color: var(--putih);
+    }
+    .hero-sejarah-judul em { color: var(--kuning); font-style: italic; }
+    .hero-sejarah-tahun { font-size: 13px; color: #999999; margin-top: 6px; }
+    .hero-sejarah-tahun strong { color: var(--putih); }
+    .hero-sejarah-list {
+      list-style: none; margin-top: 20px;
+      border-left: 1px solid rgba(245,197,0,0.35); padding-left: 18px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .hero-sejarah-list li { position: relative; }
+    .hero-sejarah-list li::before {
+      content: ''; position: absolute; left: -23px; top: 5px;
+      width: 9px; height: 9px; background: var(--kuning); border-radius: 50%;
+    }
+    .hero-sejarah-waktu {
+      display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--kuning); margin-bottom: 4px;
+    }
+    .hero-sejarah-list p { font-size: 13.5px; line-height: 1.65; color: #BBBBBB; }
+    .hero-sejarah-link {
+      display: inline-block; margin-top: 20px;
+      font-size: 13px; font-weight: 700; color: var(--kuning); text-decoration: none;
+    }
+    .hero-sejarah-link:hover { text-decoration: underline; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      .hero-top { grid-template-columns: 1fr; gap: 40px; }
       .navbar { padding: 0 24px; }
       .navbar-links { display: none; }
       .hamburger { display: flex; }
