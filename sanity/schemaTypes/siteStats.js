@@ -15,6 +15,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'eventTerlaksana',
+      title: 'Event Terlaksana',
+      type: 'string',
+      description: 'Contoh: "75+" — tampil dengan keterangan "selama 3 tahun"',
+    },
+    {
       name: 'programAktif',
       title: 'Program Unggulan',
       type: 'string',

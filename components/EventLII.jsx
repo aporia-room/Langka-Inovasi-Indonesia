@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { daftarEvent, labelStatus, rentangTanggal } from '@/lib/event'
 
-export default function EventLII({ maks = 3 }) {
-  const daftar = daftarEvent().slice(0, maks)
+export default async function EventLII({ maks = 3 }) {
+  const daftar = (await daftarEvent()).slice(0, maks)
 
   if (daftar.length === 0) return null
 
@@ -27,7 +27,7 @@ export default function EventLII({ maks = 3 }) {
           )
           const luar = e.link && e.link.startsWith('http')
           return (
-            <li key={e.judul}>
+            <li key={e._id || e.judul}>
               {e.link ? (
                 luar ? (
                   <a href={e.link} target="_blank" rel="noopener noreferrer" className="hero-event-item">{isi}</a>
