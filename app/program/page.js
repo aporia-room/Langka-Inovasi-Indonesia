@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Footer from '@/components/Footer'
 import { getPrograms, getRiset } from '@/lib/sanity'
 import ProgramGaleri from '@/components/ProgramGaleri'
@@ -82,15 +83,35 @@ export default async function Program() {
           </p>
         ) : (
           <div className="riset-grid">
-            {riset.map((r) => (
-              <div className="riset-card" key={r._id}>
-                <span className={`riset-status ${r.status === 'Selesai' ? 'selesai' : ''}`}>
-                  {r.status}
-                </span>
-                <h3 className="card-title">{r.judul}</h3>
-                <p className="body-text" style={{ fontSize: '14px' }}>{r.desc}</p>
-              </div>
-            ))}
+            {riset.map((r) => {
+              const isi = (
+                <>
+                  <span className={`riset-status ${r.status === 'Selesai' ? 'selesai' : ''}`}>
+                    {r.status}
+                  </span>
+                  <h3 className="card-title">{r.judul}</h3>
+                  <p className="body-text" style={{ fontSize: '14px' }}>{r.desc}</p>
+                  {r.href && (
+                    <span className="body-text" style={{ fontSize: '14px', fontWeight: 700, marginTop: '12px', display: 'inline-block' }}>
+                      Baca riset →
+                    </span>
+                  )}
+                </>
+              )
+              if (!r.href) return <div className="riset-card" key={r._id}>{isi}</div>
+              if (r.href.startsWith('http')) {
+                return (
+                  <a className="riset-card" key={r._id} href={r.href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    {isi}
+                  </a>
+                )
+              }
+              return (
+                <Link className="riset-card" key={r._id} href={r.href} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  {isi}
+                </Link>
+              )
+            })}
           </div>
         )}
       </section>

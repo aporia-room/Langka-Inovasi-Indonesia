@@ -36,8 +36,8 @@ function KartuEvent({ e }) {
   return <Link href={e.link} className="event-card">{isi}</Link>
 }
 
-export default function EventPage() {
-  const semua = daftarEvent()
+export default async function EventPage() {
+  const semua = await daftarEvent()
 
   return (
     <div className="page">
