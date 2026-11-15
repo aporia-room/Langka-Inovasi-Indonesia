@@ -667,6 +667,33 @@
     }
     .hero-sejarah-link:hover { text-decoration: underline; }
 
+
+    /* ── HALAMAN EVENT ── */
+    .event-kelompok + .event-kelompok { margin-top: 56px; }
+    .event-kelompok-judul {
+      font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 30px;
+      color: var(--hitam); margin-bottom: 24px;
+    }
+    .event-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .event-card {
+      display: flex; flex-direction: column; gap: 10px;
+      background: var(--putih); border: 1px solid var(--border); border-top: 4px solid var(--kuning);
+      padding: 24px; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    a.event-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.06); }
+    .event-card .status-selesai { background: var(--abu-muda); color: var(--abu); }
+    .event-card-judul { font-size: 18px; font-weight: 700; line-height: 1.4; color: var(--hitam); }
+    .event-card-meta { display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--abu); }
+    .event-card-baca { margin-top: auto; padding-top: 8px; font-size: 13px; font-weight: 700; color: var(--hitam); }
+    a.event-card:hover .event-card-baca { color: #B38F00; }
+
+    @media (min-width: 901px) and (max-width: 1200px) {
+      .navbar { padding: 0 28px; }
+      .navbar-links { gap: 18px; }
+      .navbar-links a { font-size: 13px; }
+      .navbar-cta { padding: 8px 14px; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero-top { grid-template-columns: 1fr; gap: 40px; }

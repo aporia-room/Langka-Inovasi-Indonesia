@@ -1,43 +1,8 @@
 import Link from 'next/link'
-import { eventLokal } from '@/lib/eventLokal'
-import { formatTanggal } from '@/lib/format'
-
-// Tanggal hari ini di zona waktu WIB, format YYYY-MM-DD
-function hariIniWIB() {
-  return new Date(Date.now() + 7 * 3600 * 1000).toISOString().slice(0, 10)
-}
-
-function statusEvent(e, hariIni) {
-  const selesai = e.selesai || e.mulai
-  if (hariIni < e.mulai) return 'akan'
-  if (hariIni > selesai) return 'selesai'
-  return 'berlangsung'
-}
-
-const labelStatus = {
-  berlangsung: 'Berlangsung',
-  akan: 'Akan Datang',
-  selesai: 'Selesai',
-}
-
-function rentangTanggal(e) {
-  if (!e.selesai || e.selesai === e.mulai) return formatTanggal(e.mulai)
-  const [a, b] = [formatTanggal(e.mulai), formatTanggal(e.selesai)]
-  const [da, ...ra] = a.split(' ')
-  const [db, ...rb] = b.split(' ')
-  return ra.join(' ') === rb.join(' ') ? `${da}–${db} ${rb.join(' ')}` : `${a} – ${b}`
-}
+import { daftarEvent, labelStatus, rentangTanggal } from '@/lib/event'
 
 export default function EventLII({ maks = 3 }) {
-  const hariIni = hariIniWIB()
-  const urutan = { berlangsung: 0, akan: 1, selesai: 2 }
-  const daftar = eventLokal
-    .map((e) => ({ ...e, status: statusEvent(e, hariIni) }))
-    .sort((a, b) =>
-      urutan[a.status] - urutan[b.status] ||
-      (a.status === 'selesai' ? b.mulai.localeCompare(a.mulai) : a.mulai.localeCompare(b.mulai))
-    )
-    .slice(0, maks)
+  const daftar = daftarEvent().slice(0, maks)
 
   if (daftar.length === 0) return null
 
@@ -76,6 +41,7 @@ export default function EventLII({ maks = 3 }) {
           )
         })}
       </ul>
+      <Link href="/event" className="hero-sejarah-link">Lihat semua event →</Link>
     </aside>
   )
 }

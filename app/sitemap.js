@@ -6,7 +6,7 @@ export const revalidate = 3600
 
 export default async function sitemap() {
   const now = new Date()
-  const halaman = ['', '/tentang', '/program', '/blog', '/kontak'].map((path) => ({
+  const halaman = ['', '/tentang', '/program', '/blog', '/event', '/kontak'].map((path) => ({
     url: `${BASE}${path}`,
     lastModified: now,
     changeFrequency: path === '' || path === '/blog' ? 'weekly' : 'monthly',

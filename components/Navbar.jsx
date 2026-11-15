@@ -10,6 +10,7 @@ const links = [
   { label: 'Program', href: '/program' },
   { label: 'Publikasi', href: '/blog' },
   { label: 'Kontak', href: '/kontak' },
+  { label: 'Event', href: '/event' },
 ]
 
 export default function Navbar() {
