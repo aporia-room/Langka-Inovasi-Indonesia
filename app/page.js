@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Footer from '@/components/Footer'
-import { getArtikel, getSiteStats } from '@/lib/sanity'
+import ArtikelCard, { ArtikelLink } from '@/components/ArtikelCard'
+import { getArtikel, getBerita, getSiteStats } from '@/lib/sanity'
+import { formatTanggal } from '@/lib/format'
 
 const pilar = [
   { n: '1', judul: 'Pengembangan & Pemberdayaan Pemuda', desc: 'Menjadi ruang bagi pemuda untuk menumbuhkan potensi diri, mengasah kepemimpinan, dan memperluas jejaring melalui pelatihan, mentoring, pendampingan, lokakarya, seminar, dan kegiatan literasi.' },
@@ -12,9 +14,14 @@ export const revalidate = 60
 
 export default async function Home() {
   let posts = []
+  let berita = []
   let stats = { risetSelesai: '0', programAktif: '0', tahunBerdiri: '2025' }
 
   try { posts = await getArtikel() } catch (e) { console.error(e) }
+  try { berita = await getBerita(3) } catch (e) { console.error(e) }
+
+  // Publikasi selain berita (Opini, Policy Brief, Riset)
+  const publikasi = posts.filter((p) => p.cat !== 'Berita')
   try {
     const s = await getSiteStats()
     if (s) stats = s
@@ -74,22 +81,47 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* ── KOLOM BERITA ── */}
+      <section className="home-berita">
+        <div className="home-berita-inner">
+          <div className="home-berita-head">
+            <div>
+              <div className="label">Kabar LII</div>
+              <h2 className="section-title">Berita Terkini</h2>
+            </div>
+            <Link href="/blog?kategori=Berita" className="btn-outline">Semua Berita →</Link>
+          </div>
+          {berita.length === 0 ? (
+            <p className="body-text" style={{ marginTop: '24px', color: 'var(--abu)' }}>
+              Belum ada berita.
+            </p>
+          ) : (
+            <div className="blog-grid" style={{ marginTop: '40px' }}>
+              {berita.map((b) => (
+                <ArtikelCard artikel={b} key={b._id} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── PUBLIKASI TERBARU ── */}
       <div className="home-latest">
         <div className="label">Terbaru</div>
-        <h2 className="section-title">Publikasi & Berita</h2>
-        {posts.length === 0 ? (
+        <h2 className="section-title">Publikasi</h2>
+        {publikasi.length === 0 ? (
           <p className="body-text" style={{ marginTop: '24px', color: 'var(--abu)' }}>
             Belum ada publikasi.
           </p>
         ) : (
           <div className="latest-grid">
-            {posts.slice(0, 4).map((b) => (
-              <Link href="/blog" key={b._id} className="latest-card">
+            {publikasi.slice(0, 4).map((b) => (
+              <ArtikelLink artikel={b} key={b._id} className="latest-card">
                 <div className="latest-tag">{b.cat}</div>
                 <h3 className="card-title">{b.judul}</h3>
                 <p className="body-text" style={{ fontSize: '14px' }}>{b.desc}</p>
-                <div className="latest-date">{b.tanggal} · {b.penulis}</div>
-              </Link>
+                <div className="latest-date">{formatTanggal(b.tanggal)} · {b.penulis}</div>
+              </ArtikelLink>
             ))}
           </div>
         )}

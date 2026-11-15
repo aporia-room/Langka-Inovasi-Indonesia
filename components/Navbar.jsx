@@ -30,7 +30,7 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className={pathname === l.href ? 'active' : ''}
+              className={pathname === l.href || (l.href !== '/' && pathname?.startsWith(l.href + '/')) ? 'active' : ''}
             >
               {l.label}
             </Link>
@@ -57,7 +57,7 @@ export default function Navbar() {
           <Link
             key={l.href}
             href={l.href}
-            className={pathname === l.href ? 'active' : ''}
+            className={pathname === l.href || (l.href !== '/' && pathname?.startsWith(l.href + '/')) ? 'active' : ''}
             onClick={() => setMenuOpen(false)}
           >
             {l.label}
