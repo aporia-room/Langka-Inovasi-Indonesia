@@ -3,6 +3,7 @@ import Footer from '@/components/Footer'
 import ArtikelCard, { ArtikelLink } from '@/components/ArtikelCard'
 import { getArtikel, getBerita, getSiteStats } from '@/lib/sanity'
 import { formatTanggal } from '@/lib/format'
+import SejarahLII from '@/components/SejarahLII'
 
 const pilar = [
   { n: '1', judul: 'Pengembangan & Pemberdayaan Pemuda', desc: 'Menjadi ruang bagi pemuda untuk menumbuhkan potensi diri, mengasah kepemimpinan, dan memperluas jejaring melalui pelatihan, mentoring, pendampingan, lokakarya, seminar, dan kegiatan literasi.' },
@@ -32,21 +33,26 @@ export default async function Home() {
 
       <section className="hero">
         <div className="hero-inner">
-          <div className="label-outline">Perkumpulan Pemuda · Kalimantan Tengah</div>
-          <h1 className="display">
-            Inovasi Dimulai dari<br />
-            <em>Pikiran yang Berani</em>
-          </h1>
-          <p className="lead">
-            LII adalah perkumpulan yang menghimpun dan memberdayakan pemuda
-            Indonesia untuk berperan aktif dalam pembangunan melalui
-            pendekatan inovatif dan kolaboratif.
-          </p>
-          <div className="hero-btns">
-            <Link href="/program" className="btn-primary">Lihat Program Kami</Link>
-            <Link href="/blog" className="btn-outline" style={{ color: '#CCCCCC', borderColor: '#444444' }}>
-              Baca Publikasi
-            </Link>
+          <div className="hero-top">
+            <div className="hero-main">
+              <div className="label-outline">Perkumpulan Pemuda · Kalimantan Tengah</div>
+              <h1 className="display">
+                Inovasi Dimulai dari<br />
+                <em>Pikiran yang Berani</em>
+              </h1>
+              <p className="lead">
+                LII adalah perkumpulan yang menghimpun dan memberdayakan pemuda
+                Indonesia untuk berperan aktif dalam pembangunan melalui
+                pendekatan inovatif dan kolaboratif.
+              </p>
+              <div className="hero-btns">
+                <Link href="/program" className="btn-primary">Lihat Program Kami</Link>
+                <Link href="/blog" className="btn-outline" style={{ color: '#CCCCCC', borderColor: '#444444' }}>
+                  Baca Publikasi
+                </Link>
+              </div>
+            </div>
+            <SejarahLII tahunBerdiri={stats.tahunBerdiri} />
           </div>
           <div className="hero-stats">
             <div className="stat-item">
