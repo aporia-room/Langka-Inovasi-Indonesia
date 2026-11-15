@@ -17,16 +17,18 @@ export default function Kontak() {
     topik: '',
     pesan: '',
   })
-  const [sent, setSent] = useState(false)
+  // status: idle | mengirim | terkirim | gagal
+  const [status, setStatus] = useState('idle')
+  const [jebakan, setJebakan] = useState('') // honeypot anti-spam (tidak terlihat)
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  // Membuka aplikasi email pengunjung dengan pesan yang sudah terisi
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const subjek = `[Website LII] ${form.topik} — ${form.nama}`
+  const subjek = () => `[Website LII] ${form.topik} — ${form.nama}`
+
+  // Cadangan: buka aplikasi email pengunjung dengan pesan yang sudah terisi
+  const bukaEmail = () => {
     const isi =
       `Nama: ${form.nama}\n` +
       `Email: ${form.email}\n` +
@@ -34,9 +36,38 @@ export default function Kontak() {
       `Topik: ${form.topik}\n\n` +
       form.pesan
     window.location.href =
-      `mailto:${EMAIL}?subject=${encodeURIComponent(subjek)}&body=${encodeURIComponent(isi)}`
-    setSent(true)
-    setTimeout(() => setSent(false), 6000)
+      `mailto:${EMAIL}?subject=${encodeURIComponent(subjek())}&body=${encodeURIComponent(isi)}`
+  }
+
+  // Kirim langsung ke email LII lewat FormSubmit (https://formsubmit.co)
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (jebakan) return // diisi bot, abaikan
+    setStatus('mengirim')
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          Nama: form.nama,
+          Email: form.email,
+          'Organisasi / Institusi': form.organisasi || '-',
+          Topik: form.topik,
+          Pesan: form.pesan,
+          _replyto: form.email,
+          _subject: subjek(),
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || data.success === false || data.success === 'false') throw new Error(data.message || 'Gagal')
+      setStatus('terkirim')
+      setForm({ nama: '', email: '', organisasi: '', topik: '', pesan: '' })
+      setTimeout(() => setStatus('idle'), 8000)
+    } catch (err) {
+      setStatus('gagal')
+    }
   }
 
   return (
@@ -185,11 +216,33 @@ export default function Kontak() {
                 />
               </div>
 
-              <button type="submit" className="form-submit">
-                Kirim Pesan →
+              {/* Honeypot: dibiarkan kosong oleh manusia */}
+              <input
+                type="text"
+                name="_honey"
+                value={jebakan}
+                onChange={(e) => setJebakan(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+              />
+
+              <button type="submit" className="form-submit" disabled={status === 'mengirim'}>
+                {status === 'mengirim' ? 'Mengirim…' : 'Kirim Pesan →'}
               </button>
+
+              {status === 'gagal' && (
+                <p className="body-text" style={{ fontSize: '13px', marginTop: '12px', color: '#B3261E' }}>
+                  Pesan belum berhasil terkirim. Coba lagi, atau{' '}
+                  <button type="button" onClick={bukaEmail} className="kontak-link-btn">
+                    kirim lewat aplikasi email
+                  </button>
+                  .
+                </p>
+              )}
               <p className="body-text" style={{ fontSize: '13px', marginTop: '12px', color: 'var(--abu)' }}>
-                Tombol ini membuka aplikasi email kamu dengan pesan yang sudah terisi. Tinggal tekan Kirim di sana.
+                Pesanmu akan langsung terkirim ke email Langkah Inovasi Indonesia ({EMAIL}), dan kami akan membalas ke alamat email yang kamu isi.
               </p>
             </form>
           </div>
@@ -197,9 +250,9 @@ export default function Kontak() {
       </section>
 
       {/* Toast Notifikasi */}
-      {sent && (
+      {status === 'terkirim' && (
         <div className="toast">
-          Aplikasi email dibuka. Jangan lupa tekan Kirim di sana, ya.
+          Terima kasih! Pesanmu sudah terkirim. Kami akan segera membalas lewat email.
         </div>
       )}
 
