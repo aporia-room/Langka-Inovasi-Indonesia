@@ -754,3 +754,7 @@ a.btn-primary { color: var(--hitam); }
 a.btn-outline { color: var(--hitam); }
 a.navbar-cta { color: var(--hitam); }
 a.navbar-logo { color: var(--putih); }
+
+    .unduh-profil { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
+    .unduh-profil .btn-primary { text-decoration: none; }
+    .unduh-profil-info { font-size: 13px; color: #AAAAAA; }

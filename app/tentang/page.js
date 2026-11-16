@@ -35,6 +35,16 @@ export default async function Tentang() {
             aktif dalam pembangunan melalui pendekatan inovatif dan kolaboratif,
             berkedudukan di Palangka Raya, Kalimantan Tengah.
           </p>
+          <div className="unduh-profil">
+            <a
+              className="btn-primary"
+              href="/dokumen/Profil-Langkah-Inovasi-Indonesia.pdf"
+              download="Profil Langkah Inovasi Indonesia.pdf"
+            >
+              Unduh Profil Organisasi (PDF) ↓
+            </a>
+            <span className="unduh-profil-info">Organizational Profile · 11 halaman · 13 MB</span>
+          </div>
         </div>
       </section>
 
