@@ -10,7 +10,7 @@ export default defineConfig({
   title: 'LII — Studio Konten',
   basePath: '/studio',
 
-  projectId: 'ksiczign',
+  projectId: '9b3j3mz6',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
