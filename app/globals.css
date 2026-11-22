@@ -758,3 +758,5 @@ a.navbar-logo { color: var(--putih); }
     .unduh-profil { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
     .unduh-profil .btn-primary { text-decoration: none; }
     .unduh-profil-info { font-size: 13px; color: #AAAAAA; }
+
+    .artikel-video video { display: block; width: 100%; max-width: 420px; margin: 0 auto; border-radius: 12px; background: #000; }
