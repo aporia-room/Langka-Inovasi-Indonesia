@@ -47,6 +47,13 @@ const komponenIsi = {
           {value.caption && <figcaption>{value.caption}</figcaption>}
         </figure>
       ) : null,
+    video: ({ value }) =>
+      value?.url ? (
+        <figure className="artikel-figure artikel-video">
+          <video src={value.url} poster={value.poster || undefined} controls playsInline preload="metadata" />
+          {value.caption && <figcaption>{value.caption}</figcaption>}
+        </figure>
+      ) : null,
   },
   marks: {
     link: ({ value, children }) => {
