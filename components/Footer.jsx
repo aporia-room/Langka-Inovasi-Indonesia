@@ -6,6 +6,7 @@ const navItems = [
   { href: '/program', label: 'Program & Riset' },
   { href: '/blog', label: 'Publikasi' },
   { href: '/kontak', label: 'Kontak' },
+  { href: '/jurnal', label: 'Jurnal' },
   { href: '/event', label: 'Event' },
 ]
 

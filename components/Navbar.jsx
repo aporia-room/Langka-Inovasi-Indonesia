@@ -9,6 +9,7 @@ const links = [
   { label: 'Tentang', href: '/tentang' },
   { label: 'Program', href: '/program' },
   { label: 'Publikasi', href: '/blog' },
+  { label: 'Jurnal', href: '/jurnal' },
   { label: 'Kontak', href: '/kontak' },
   { label: 'Event', href: '/event' },
 ]
